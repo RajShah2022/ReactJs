@@ -1,0 +1,3 @@
+Open a terminal window in this folder and send a command of "json-server --watch db.json -d 2000 -p 3001".
+This will start up the local json-server and ReactJS Application.
+This application can be accessed through a browser window by entering the URL as mentioned in the terminal window under "Home".
