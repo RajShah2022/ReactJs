@@ -1,0 +1,51 @@
+{
+  "name": "@fira/monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kernel - Project management environment",
+  "scripts": {
+    "dev": "mprocs",
+    "dev:client": "pnpm --filter client dev",
+    "dev:server": "pnpm --filter server dev",
+    "dev:client:logged": "logs/run-with-log.sh logs/client.log pnpm run dev:client",
+    "dev:server:logged": "logs/run-with-log.sh logs/server.log pnpm run dev:server",
+    "build": "pnpm --recursive run build",
+    "build:shared": "pnpm --filter shared build",
+    "build:client": "pnpm --filter @fira/client build",
+    "build:server": "pnpm --filter @fira/server build",
+    "build:mcp": "pnpm --filter theseus-fira-mcp-server build",
+    "start:server": "pnpm --filter @fira/server start",
+    "start:client": "pnpm --filter @fira/client start",
+    "start:mcp": "pnpm --filter theseus-fira-mcp-server run start",
+    "start:mcp:http": "pnpm --filter theseus-fira-mcp-server run start:http",
+    "dev:mcp": "pnpm --filter theseus-fira-mcp-server run dev",
+    "clean": "pnpm --recursive --if-present run clean",
+    "typecheck": "pnpm --filter shared --filter server --filter client run typecheck && pnpm --filter client run check",
+    "lint": "pnpm --filter server --filter client run lint",
+    "test": "pnpm --filter server --filter client run test",
+    "test:jql": "pnpm --filter server run test:jql",
+    "test:jql:watch": "pnpm --filter server run test:jql:watch",
+    "test:jql:simple": "pnpm --filter server run test:jql:simple"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "keywords": [
+    "monorepo",
+    "typescript",
+    "jira",
+    "project-management"
+  ],
+  "author": "Fleet Team",
+  "license": "MIT",
+  "dependencies": {
+    "drizzle-orm": "^0.44.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "drizzle-kit": "^0.31.1"
+  },
+  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184"
+}
